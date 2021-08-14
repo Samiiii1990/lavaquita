@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%;
-  background-color: gray;
+
   h1 {
     color: darkred;
   }
@@ -20,7 +20,10 @@
   }
 
   .logo{
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/logopng.png");
+    background-size: cover;
+    background-position: center;
   }
 }
