@@ -1,15 +1,34 @@
-
-.font{
-    font-weight: 400;
-    font-size: 1.5rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:darkred;
-    margin-left: 10px;
-    vertical-align: middle;
+.font {
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: darkred;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
-.item-img{
-    width: 100%;
-    height: 300px;
-    
+.item-img {
+  width: 100%;
+  height: 300px;
+}
+
+.btn-primary {
+  background-color: darkred !important;
+  border-color: darkred !important;
+}
+.background-card{
+    width: 32% !important;
+    background-color: darkred !important;
+    color: white !important;
+    padding: 15px !important;
+    margin: 5px !important;
+}
+
+.btn-outlined{
+
+    background-color: whitesmoke !important;
+    border-color: whitesmoke !important;
+    color:darkred !important
+
 }

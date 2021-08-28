@@ -1,17 +1,27 @@
 import React from "react";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 
 
 const NavBar = () => {
   return (
     <header className="nav-bar">
-        <div className="logo"></div>
+      <Link to={"/"}>
+      <div className="logo"></div>
+      </Link>
+        
       <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Ofertas</a>
-        <a href="#">Recetas</a>
-        <a href="#">Sucursales</a>
+        <Link to={"/nosotros"}>Nosotros</Link>
+        <Link to={"#"}>Ofertas</Link>
+        <Link to={"#"}>Recetas</Link>
+        <Link to={"/category/vacuna"}>Novillo</Link>
+        <Link to={"/category/cerdo"}>Cerdo</Link>
+        <Link to={"/category/pollo"}>Pollo</Link>
+        <Link to={"/carrito"}>Carrito</Link>
+        <Link to={"#"}>Sucursales</Link>
+      
+      
       </nav>
     </header>
   );
