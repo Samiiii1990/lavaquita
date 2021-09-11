@@ -1,20 +1,30 @@
-
-import React, { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
+import React, { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 import "./styles.scss";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
+  const { cantCarrito, carrito } = useContext(CartContext);
+  console.log("🚀 ~ file: cartWidget.js ~ line 9 ~ CartWidget ~ carrito", carrito.length)
+  const [hasNotItems, setHasNotItems] = useState(false);
 
-    const {cantCarrito} = useContext(CartContext)
+  useEffect(() => {
+    if (carrito.length === 0) setHasNotItems(true);
+    if (carrito.length > 0) setHasNotItems(false);
 
-    return (
+  }, [carrito]);
+
+  return (
+    <div>
+      {!hasNotItems && (
         <Link to="/cart">
-            <div className="cart-widget">
-                    <ShoppingCartIcon/>
-                    <span>{cantCarrito()}</span>
-            </div>
+          <div className="cart-widget">
+            <ShoppingCartIcon />
+            <span>{cantCarrito()}</span>
+          </div>
         </Link>
-    )
-}
+      )}
+    </div>
+  );
+};
