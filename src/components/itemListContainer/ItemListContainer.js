@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { solicitarDatos } from "../../helpers/solicitarDatos";
 import { ItemList } from "./itemList";
 import "./styles.scss";
+import ReactLoading from 'react-loading';
+import { getFirestore } from "../../firebase/config";
 
 const ItemListContainer = () => {
   const [data, setData] = useState([]);
@@ -13,23 +14,36 @@ const ItemListContainer = () => {
   useEffect( ()=> {
     setLoading(true)
 
-    solicitarDatos()
-        .then(res => {
+    const db = getFirestore()
+    const items = db.collection('items')
 
-            if (catId) {
-                const arrayFiltrado = res.filter( prod => prod.category === catId)
-                setData( arrayFiltrado )
-            } else {
-                setData(res)
-            }
-        })
-        .catch(err => console.log(err))
-        .finally(()=> {
-            setLoading(false)
-        })
+    if (catId) {
+        const filtrado = items.where('category', '==', catId)
+        filtrado.get()
+            .then((response) => {
+                const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
+                console.log(data)
+                setData(data)
+            })
+            .finally(()=> {
+                setLoading(false)
+            })
+    } else {
+        items.get()
+            .then((response) => {
+                const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
+                console.log(data)
+                setData(data)
+            })
+            .finally(()=> {
+                setLoading(false)
+            })
+    }
 
-}, [catId])
+}, [catId, setLoading])
 
-  return <>{loading ? <h2>Cargando...</h2> : <ItemList productos={data} />}</>;
+  return <>     {loading ? (
+    <ReactLoading type={"spinningBubbles"} color={"darkred"} className="loading" />
+  ) :( <ItemList productos={data} />)}</>;
 };
 export default ItemListContainer;

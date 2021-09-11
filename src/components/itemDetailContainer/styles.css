@@ -1,5 +1,6 @@
 .background-card {
   width: 32% !important;
+  height: 30% !important;
   background-color: darkred !important;
   color: white !important;
   padding: 15px !important;

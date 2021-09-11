@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { solicitarDatos } from "../../helpers/solicitarDatos";
 import ItemDetail from "./itemDetail";
+import ReactLoading from 'react-loading';
+import { getFirestore } from "../../firebase/config";
 
 export const ItemDetailContainer = () => {
   const { itemId } = useParams();
@@ -9,17 +10,30 @@ export const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
+  useEffect(()=>{
+    setLoading(true)
 
-    solicitarDatos()
-      .then((res) => {
-        setItem(res.find((prod) => prod.id === parseInt(itemId)));
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [itemId]);
+    const db = getFirestore()
+    const items = db.collection('items')
+    const item = items.doc(itemId)
 
-  return <div>{loading ? <h2>Cargando...</h2> : <ItemDetail {...item} />}</div>;
+    item.get()
+        .then((doc) => {
+        setItem( {...doc.data(), id: doc.id} )
+        })
+        .finally(()=> { setLoading(false)})
+
+
+}, [itemId, setLoading])
+
+
+  return (
+    <div>
+      {loading ? (
+       <ReactLoading type={"spinningBubbles"} color={"darkred"} className="loading" />
+      ) : (
+        <ItemDetail {...item} />
+      )}
+    </div>
+  );
 };
