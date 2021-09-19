@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Delete } from "@material-ui/icons";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const CartList = () => {
   const { carrito, eliminarDelCarrito, vaciarCarrito } =
@@ -36,7 +37,8 @@ const CartList = () => {
           <h1>Detalle de Compra</h1>
 
           {carrito.map((prod) => (
-            <div className="cart-with-image">
+      
+            <div id={prod.id} className="cart-with-image">
               <div className="item-info">
                 <h3>{prod.name}</h3>
                 <p>Cantidad :{prod.cantidad} kg</p>
@@ -61,6 +63,9 @@ const CartList = () => {
           <button className="btn btn-outlined" onClick={vaciarCarrito}>
             Vaciar Carrito
           </button>
+          <Link to="/checkout">
+            <button className="btn btn-success mx-3">Completar Compra</button>
+          </Link>
         </div>
       )}
     </div>

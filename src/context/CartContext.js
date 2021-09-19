@@ -27,6 +27,7 @@ export const CartProvider = ({ children }) => {
     return carrito.some((el) => el.id === id);
   };
 
+
   return (
     <CartContext.Provider
       value={{
