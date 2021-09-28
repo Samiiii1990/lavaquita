@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
   const { cantCarrito, carrito } = useContext(CartContext);
-  console.log("🚀 ~ file: cartWidget.js ~ line 9 ~ CartWidget ~ carrito", carrito.length)
   const [hasNotItems, setHasNotItems] = useState(false);
 
   useEffect(() => {

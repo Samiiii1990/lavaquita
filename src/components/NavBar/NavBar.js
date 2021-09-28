@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
-import { CartWidget } from "../cartWidget/cartWidget";
+import { CartWidget } from "../CartWidget/CartWidget";
 
 
 
