@@ -30,10 +30,6 @@ function App() {
               <ItemDetailContainer />
             </Route>
 
-            <Route exact path="/nosotros">
-              <h1>Nosotros</h1>
-            </Route>
-
             <Route exact path="/cart">
               <CartList/>
             </Route>
@@ -44,7 +40,6 @@ function App() {
               <Redirect to="/" />
             </Route>
           </Switch>
-          {/* <Footer /> */}
         </BrowserRouter>
 
         </CartProvider>

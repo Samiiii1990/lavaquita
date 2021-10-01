@@ -13,14 +13,13 @@ const NavBar = () => {
       </Link>
         
       <nav>
-        <Link to={"/nosotros"}>Nosotros</Link>
-        <Link to={"#"}>Ofertas</Link>
-        <Link to={"#"}>Recetas</Link>
+
+        <Link to={"/"}>Todos</Link>
         <Link to={"/category/vacuna"}>Novillo</Link>
         <Link to={"/category/cerdo"}>Cerdo</Link>
         <Link to={"/category/pollo"}>Pollo</Link>
-        <Link to={"/cart"}>Carrito</Link>
-        <Link to={"#"}>Sucursales</Link>
+        <Link to={"/cart"}>Mi Carrito</Link>
+
       
       
       </nav>
