@@ -1,20 +1,36 @@
-La Vaquita
+# LA VAQUITA
 
 La Vaquita es una carnicería online que permite a sus clientes realizar su compra desde su tienda virtual.
 
-Clonar el Proyecto
+## GIT
 
-HTTPS : https://github.com/Samiiii1990/lavaquita.git
+##### Windows
+[Descargar GIT for Windows](https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe)
 
-SSH: git@github.com:anabelisam/readme.md.git
+##### Linux
+```
+sudo apt install git
+```
 
+## Clonar el repositorio
 
-Instalar Dependencias
+```
+git https://github.com/Samiiii1990/lavaquita.git
 
+```
+
+## Instalar Dependencias
+
+```
 npm install
 
-Iniciar el Proyecto
+```
 
+## Iniciar Proyecto
+
+```
 npm start
+
+```
 
 
