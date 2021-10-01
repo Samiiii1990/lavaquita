@@ -15,7 +15,7 @@ sudo apt install git
 ## Clonar el repositorio
 
 ```
-git https://github.com/Samiiii1990/lavaquita.git
+git clone https://github.com/Samiiii1990/lavaquita.git
 
 ```
 
